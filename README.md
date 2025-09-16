@@ -1,3 +1,17 @@
+## FinAgentX
+
+The FinAgentX is designed to enrich the valdiation of BAI2 files imported to SAP systems.
+In some cases such files can be corrupted and cause problems impacting customer business.
+The error analysis is difficult and time consuming. With FinAgentX identifing issues can
+be heavly accelerated and the overall process can be monitored.
+
+![Process Overview](Files/BlockDiagramVertex.png "Block Diagram")
+
+
+
+
+
+
 ### Steps
 
 Start reading
