@@ -1,3 +1,4 @@
+from . import prompt
 from google.adk.agents import Agent
 from google.adk.tools import ToolContext
 import datetime
@@ -35,14 +36,8 @@ def save_validation_result(
 
 reporting_agent = Agent(
     name="reporting_agent",
-    model="gemini-2.0-flash",
-    description="reporting_agent agent specialized reporting of the results of validating bai2 file by the validator_agent",
-    instruction='''
-    You are a reporting agent specialized in reporting of results of validating bai2 file by the validator_agent.
-    Use the save_validation_result tool to save the validation result to the session memory.
-
-    
-    If the user asks about the results summary or report, provide it. For anything else, you should delegate the task to the manager agent.
-    ''',
+    model="gemini-2.0-flash",  
+    description="reporting_agent agent specialized reporting of any validation error encountered while validating bai2 file by the validator_agent",
+    instruction=prompt.REPORTING_AGENT_INSTRUCTIONS,
     tools=[save_validation_result],
 )
