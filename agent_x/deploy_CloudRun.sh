@@ -1,0 +1,1 @@
+sudo gcloud run deploy agent-x --source . --region us-central1 --project qwiklabs-gcp-01-b04f6026c908 --allow-unauthenticated --set-env-vars="GOOGLE_CLOUD_PROJECT=qwiklabs-gcp-01-b04f6026c908,GOOGLE_CLOUD_LOCATION=us-central1,GOOGLE_GENAI_USE_VERTEXAI=true"
