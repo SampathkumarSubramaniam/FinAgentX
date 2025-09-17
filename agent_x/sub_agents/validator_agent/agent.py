@@ -1,8 +1,12 @@
 from google.adk.agents import Agent
 from google.adk.tools import FunctionTool
+import firebase_admin
+from firebase_admin import credentials, firestore
+
 from . import prompt
 from .tools import check_bank_account_known, insert_to_db
 
+from .tools import check_bank_account_known, add_report_to_db
 
 validator_agent = Agent(
     name="validator_agent",
@@ -10,6 +14,7 @@ validator_agent = Agent(
     description="validator_agent helps validate the BAI2 file according to specifition and provide result of the validation",
     instruction=prompt.VALIDATOR_AGENT_INSTRUCTIONS,
     tools=[
-        FunctionTool(check_bank_account_known), FunctionTool(insert_to_db)
+        FunctionTool(check_bank_account_known),
+        FunctionTool(add_report_to_db)
     ],
 )
