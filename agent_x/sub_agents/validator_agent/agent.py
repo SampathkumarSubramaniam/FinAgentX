@@ -4,7 +4,6 @@ import firebase_admin
 from firebase_admin import credentials, firestore
 
 from . import prompt
-from .tools import check_bank_account_known, insert_to_db
 
 from .tools import check_bank_account_known, add_report_to_db
 
