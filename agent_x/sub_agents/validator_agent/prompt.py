@@ -15,7 +15,16 @@ VALIDATOR_AGENT_INSTRUCTIONS = """
     - if validation is not successful, pass on the error to the next agent to send notification accordingly
     - If the bai2 file contains "Customer Account Number" in the 03 record line, use the `check_bank_account_known` 
       and print out the message that is returned by the function in a separate section.
-    - Finally, when the validation is done, store the result(timestamp) of the validation in the database using the tool insert_into_db.
+    - Finally, when the validation is done, construct a JSON object with the following structure:
+      {
+        "file_name": "<name of the file>",
+        "validation_status": "<passed/failed>",
+        "errors": [<list of errors found, empty if none>],
+        "user": "<user who uploaded the file>",
+        "timestamp": "<current timestamp in ISO 8601 format>",
+        "total_issues": "<total number of issues found>"
+      }
+    call add_report_to_db tool and pass this json object as parameter.
 
 
     Key Resources:
