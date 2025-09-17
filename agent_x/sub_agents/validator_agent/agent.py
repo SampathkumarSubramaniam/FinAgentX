@@ -1,12 +1,18 @@
 from google.adk.agents import Agent
 from . import prompt
 
+def connect_to_db():
+    # connection will happen
+    pass
 
+def insert_to_db(validation_result:dict[]):
+    #validation_result - file_name, validation_status, duration, tot_issues
+    # insertion will happen
 
 validator_agent = Agent(
     name="validator_agent",
     model="gemini-2.5-pro",
     description="validator_agent helps validate the BAI2 file according to specifition and provide result of the validation",
     instruction=prompt.VALIDATOR_AGENT_INSTRUCTIONS,
-    tools=[],
+    tools=[insert_to_db()],
 )
