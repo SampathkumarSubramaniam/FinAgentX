@@ -29,11 +29,11 @@ from opentelemetry.sdk.trace import TracerProvider, export
 from vertexai import agent_engines
 from vertexai.preview.reasoning_engines import AdkApp
 
-from agent_x.agent import root_agent
+from agent import root_agent
 from agent_x.utils.gcs import create_bucket_if_not_exists
 from agent_x.utils.tracing import CloudTraceLoggingSpanExporter
 from agent_x.utils.typing import Feedback
-
+requirements = "../requirements.txt"
 
 class AgentEngineApp(AdkApp):
     def set_up(self) -> None:
@@ -139,8 +139,11 @@ def deploy_agent_engine_app(
         remote_agent = agent_engines.create(**agent_config)
 
     config = {
+        "requirements": requirements,
         "remote_agent_engine_id": remote_agent.resource_name,
         "deployment_timestamp": datetime.datetime.now().isoformat(),
+        "resource_limits": {"cpu": "4", "memory": "8Gi"},
+        "service_account": "finaxagent@qwiklabs-gcp-01-b04f6026c908.iam.gserviceaccount.com",
     }
     config_file = "deployment_metadata.json"
 
