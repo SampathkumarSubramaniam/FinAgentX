@@ -1,0 +1,66 @@
+@TOKEN=qofjoifjasfj
+
+### GET
+GET https://us-central1-aiplatform.googleapis.com/v1/projects/qwiklabs-gcp-01-b04f6026c908/locations/us-central1/reasoningEngines/4313643600509403136 HTTP/1.1
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+### Create session
+POST https://us-central1-aiplatform.googleapis.com/v1/projects/qwiklabs-gcp-01-b04f6026c908/locations/us-central1/reasoningEngines/4313643600509403136:query HTTP/1.1
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "class_method": "create_session",
+  "input": {
+    "user_id": "Arjun"
+  }
+}
+
+### List sessions
+POST https://us-central1-aiplatform.googleapis.com/v1/projects/qwiklabs-gcp-01-b04f6026c908/locations/us-central1/reasoningEngines/4313643600509403136:query HTTP/1.1
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "class_method": "list_sessions",
+  "input": {
+    "user_id": "Arjun"
+    }
+}
+
+### Get session
+POST https://us-central1-aiplatform.googleapis.com/v1/projects/qwiklabs-gcp-01-b04f6026c908/locations/us-central1/reasoningEngines/4313643600509403136:query HTTP/1.1
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "class_method": "get_session",
+  "input": {
+    "user_id": "Arjun",
+    "session_id": "407685167683993600"
+  }
+}
+
+### Query : Validate BAI2 file
+POST https://us-central1-aiplatform.googleapis.com/v1/projects/qwiklabs-gcp-01-b04f6026c908/locations/us-central1/reasoningEngines/4313643600509403136:streamQuery HTTP/1.1
+Authorization: Bearer {{TOKEN}}
+Content-Type: application/json
+
+{
+  "class_method": "stream_query",
+  "input": {
+    "user_id": "Arjun",
+    "session_id": "407685167683993600",
+    "message": "Is the following BAI2 file content (encoded in base64) valid: 01,Test FSN ,Test Receiver,180919,1310,1,99,99,2/
+02,Test Receiver,820800001,1,180923,1310,USD/
+03,25800611,USD,010,4000000,,,015,4000000,,,045,13600000,,,/
+16,142,10000,S,0,10000,0,TestPayref1,0815,Test Text Item 1/
+88,4711/
+16,495,10000,Z,TestPayref2,0816,Test Text Item 2/
+49,1500320062,99/
+98,1500320062,1,99/
+99,1500320062,1,99/
+"
+  }
+}

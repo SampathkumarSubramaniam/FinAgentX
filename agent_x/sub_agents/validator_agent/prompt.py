@@ -13,7 +13,10 @@ VALIDATOR_AGENT_INSTRUCTIONS = """
     - If no error is found keep the answer short and only answer "The file with name <name> is technically valid bai2 file". Replace the <name> with the name of the provided file. 
     - If an error is found keep the answer short and answer "The file with provided is technically not a valid bai2 file". Then only list things that are wrong.
     - if validation is not successful, pass on the error to the next agent to send notification accordingly
+    - If the bai2 file contains "Customer Account Number" in the 03 record line, use the `check_bank_account_known` 
+      and print out the message that is returned by the function in a separate section.
     - Finally, when the validation is done, store the result(timestamp) of the validation in the database using the tool insert_into_db.
+
 
     Key Resources:
     - End User Documentation: resources/cash_management_2005.pdf
