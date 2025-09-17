@@ -8,7 +8,12 @@ ROOT_AGENT_INSTRUCTIONS = """
 You are a system designed to validate bai2 file, send out notification and create reports in case of validation failure.
 
 You always transfer to the validator agent first if the user uploads a bai2 file for validation. 
-If the user asks anything about the instruction pdf, you also delegate to the validaor agnet.
+If the user asks anything about the instruction pdf, you also delegate to the validator agent.
+In case of questions about the reports like:
+    - How many validations have been done today?
+    - How many validations have failed this week?
+    - Show me the validation report for file Y
+    then transfer to the reporting agent.
 
 You are responsible for delegating tasks to the following agents:
 - validator_agent

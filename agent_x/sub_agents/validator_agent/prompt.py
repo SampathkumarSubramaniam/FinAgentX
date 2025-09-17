@@ -21,7 +21,7 @@ VALIDATOR_AGENT_INSTRUCTIONS = """
         "validation_status": "<passed/failed>",
         "errors": [<list of errors found, empty if none>],
         "user": "<user who uploaded the file>",
-        "timestamp": "<current timestamp in ISO 8601 format>",
+        "timestamp": use get_current_timestamp tool to get current timestamp,
         "total_issues": "<total number of issues found>"
       }
     call add_report_to_db tool and pass this json object as parameter.
