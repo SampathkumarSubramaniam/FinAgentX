@@ -5,7 +5,7 @@ In some cases such files can be corrupted and cause problems impacting customer 
 The error analysis is difficult and time consuming. With FinAgentX identifing issues can
 be heavly accelerated and the overall process can be monitored.
 
-![Process Overview](Files/BlockDiagramVertex.png "Block Diagram")
+![Process Overview](Files/BlockDiagram_vertex.png "Block Diagram")
 
 
 
