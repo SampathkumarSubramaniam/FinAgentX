@@ -1,8 +1,28 @@
 import logging
+
+import firebase_admin
+from firebase_admin import credentials, firestore
+
 logger = logging.getLogger(__name__)
 
 
 def check_bank_account_known(bank_account_id: str) -> dict:
     """Checks the bank account ID is known to the remote system."""
     logger.info("Bank account ID %s is valid in the target system", bank_account_id)
-    return {"status": "true", "message": f"Bank account ID { bank_account_id }  is valid in the target system"}
+    return {"status": "true", "message": f"Bank account ID {bank_account_id}  is valid in the target system"}
+
+
+def connect_to_db():
+    import os
+    os.environ[
+        "GOOGLE_APPLICATION_CREDENTIALS"] = "/Users/i044527/hackathon/FinAgentX/qwiklabs-gcp-01-b04f6026c908-7c2a14707dc3.json"
+    db = firestore.Client(project="qwiklabs-gcp-01-b04f6026c908", database="finagentx")
+    return db.collection("finagentx_collection")
+
+
+def add_report_to_db(validation_data: dict) -> dict:
+    collection_ref = connect_to_db()
+    doc_ref = collection_ref.document()
+    doc_ref.set(validation_data)
+    logger.info("Record added to Firestore with ID: %s", doc_ref.id)
+    return {"status": "success", "message": f"Record added with ID {doc_ref.id}"}
