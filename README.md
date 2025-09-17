@@ -34,3 +34,16 @@ Environment variables are set already on .env file (no longer subject to .gitign
 Install Google Cloud CLI installer from here https://cloud.google.com/sdk/docs/install#windows 
 
 Install the gcloud CLI component manager.
+
+Setup agent starter pack : https://github.com/GoogleCloudPlatform/agent-starter-pack?tab=readme-ov-file#-get-started-in-1-minute
+
+### Deployment to Vertex AI
+
+Run from the repository root dir: </br>
+```python agent_x/agent_engine_app.py --project=qwiklabs-gcp-01-b04f6026c908```
+
+### Invoke agent via REST
+
+1. Get the api token using `gcloud auth print-access-token`
+2. Set the token and an arbitrary user id in the file: [API requests.http](./API%20requests.http#L1-2)
+3. Execute the API calls i 
