@@ -83,7 +83,7 @@ def deploy_agent_engine_app(
     project: str,
     location: str,
     agent_name: str | None = None,
-    requirements_file: str = ".requirements.txt",
+    requirements_file: str = "./requirements.txt",
     extra_packages: list[str] = ["./agent_x"],
     env_vars: dict[str, str] = {},
     service_account: str | None = None,
@@ -173,7 +173,7 @@ if __name__ == "__main__":
     )
     parser.add_argument(
         "--requirements-file",
-        default=".requirements.txt",
+        default="./requirements.txt",
         help="Path to requirements.txt file",
     )
     parser.add_argument(
