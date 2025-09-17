@@ -3,7 +3,7 @@ from google.adk.tools import FunctionTool
 
 from . import prompt
 
-from .tools import check_bank_account_known
+from .tools import check_bank_account_known, insert_to_db
 
 validator_agent = Agent(
     name="validator_agent",
@@ -11,6 +11,6 @@ validator_agent = Agent(
     description="validator_agent helps validate the BAI2 file according to specifition and provide result of the validation",
     instruction=prompt.VALIDATOR_AGENT_INSTRUCTIONS,
     tools=[
-        FunctionTool(check_bank_account_known),
+        FunctionTool(check_bank_account_known), FunctionTool(insert_to_db)
     ],
 )
