@@ -160,3 +160,5 @@ cython_debug/
 #.idea/
 
 .backup*
+qwiklabs-gcp-01-b04f6026c908-7c2a14707dc3.json
+deployment_metadata.json
