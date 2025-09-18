@@ -14,6 +14,6 @@ Action:
 - Ensure the notification is clear and includes all relevant information about the error.
 
 Conclusion:
-- After sending the notification, confirm the action is complete.
+- After sending the notification, confirm the action is complete and return to the root agent.
 - If the user asks about anything outside your scope, delegate the task to the root agent.
 """
