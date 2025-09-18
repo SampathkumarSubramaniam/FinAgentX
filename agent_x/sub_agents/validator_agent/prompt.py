@@ -17,7 +17,7 @@ Workflow:
     - If the request is unrelated to BAI2 validation and a BAI2 file is not provided, delegate the task to the root agent.
     - If no error is found, respond concisely: "SUCCESS: The file is valid bai2 file." 
     - If errors are found, respond: "FAILURE: The file is not a valid bai2 file." Then, list only the issues found.
-    - If the validation was done, irrespective of the validation result, push the result to the DB with tool insert_to_db.
+    - If the validation was done, irrespective of the validation result, push the result to the DB with tools connect_to_db and add_report_to_db consecutively.
     - If validation was performed but was not successful, pass the error to the notification_agent.
       - If the bai2 file contains "Customer Account Number" in the 03 record line, use the `check_bank_account_known` 
       and print out the message that is returned by the function in a separate section.

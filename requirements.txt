@@ -11,3 +11,4 @@ requests
 configparser
 uvicorn
 fastapi
+matplotlib

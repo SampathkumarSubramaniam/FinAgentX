@@ -1,4 +1,7 @@
 from agent_x.sub_agents.validator_agent.tools import connect_to_db
+import matplotlib.pyplot as plt
+from datetime import date, timedelta
+from collections import Counter
 
 
 def get_reporting_data():
@@ -27,34 +30,15 @@ def generate_chart():
 
 def get_validation_pie_chart(validation_data):
     print("validation_data", validation_data)
-    import matplotlib.pyplot as plt
-    from datetime import date, timedelta
-    from collections import Counter
-    import io, base64
     yesterday = date.today() - timedelta(days=1)
 
     # Count validation statuses
     status_counts = Counter([item['validation_status'] for item in validation_data])
     labels = list(status_counts.keys())
     sizes = list(status_counts.values())
-
-    fig, ax = plt.subplots()
+    _, ax = plt.subplots()
     ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=90)
     ax.set_title(f"Validation Status on {yesterday}")
-
-    # Show chart
     plt.show()
-    #buf = io.BytesIO()
-    #plt.savefig(buf, format="png", bbox_inches="tight")
-    #buf.seek(0)
-    #md = f"![Validation status](data:image/png;base64,{b64})"
-    #return {"text": md}
     return {"status": "success", "message": "Chart generated successfully"}
-    return {
-        "image": {
-            "mime": "image/png",
-            "base64": base64.b64encode(buf.read()).decode("utf-8"),
-            "title": f"Validation status ({yesterday})"
-        }
-    }
 

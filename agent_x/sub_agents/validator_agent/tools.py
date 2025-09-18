@@ -1,7 +1,5 @@
 import logging
-
-import firebase_admin
-from firebase_admin import credentials, firestore
+from firebase_admin import firestore
 
 logger = logging.getLogger(__name__)
 
@@ -17,9 +15,6 @@ def check_bank_account_known(bank_account_id: str) -> dict:
 
 
 def connect_to_db():
-    import os
-    # os.environ[
-    #     "GOOGLE_APPLICATION_CREDENTIALS"] = "C:/SAPDevelop/google/FinAgentX/qwiklabs-gcp-01-b04f6026c908-7c2a14707dc3.json"
     db = firestore.Client(project="qwiklabs-gcp-01-b04f6026c908", database="finagentx")
     return db.collection("finagentx_collection")
 

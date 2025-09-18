@@ -1,8 +1,5 @@
 from . import prompt
 from google.adk.agents import Agent
-from google.adk.tools import ToolContext
-import datetime
-
 from .tools import get_reporting_data, generate_chart
 
 reporting_agent = Agent(
