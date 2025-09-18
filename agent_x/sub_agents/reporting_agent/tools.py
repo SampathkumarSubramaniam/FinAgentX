@@ -21,26 +21,6 @@ def generate_chart():
     # Remove 'errors' key from each dictionary if present
     for val_data in validation_data:
         val_data.pop('errors', None)
-    validation_data_mock = [
-        {'total_issues': '1', 'user': 'Arij', 'validation_status': 'failed', 'file_name': 'arij_user_provided.bai2',
-         'timestamp': '2025-09-17T20:30:44.596469', 'errors': 'USDD is not a valid currency code, in line 02'},
-        {'total_issues': '1', 'user': 'Arjun', 'validation_status': 'Success', 'file_name': 'user_provided.bai2',
-         'timestamp': '2025-09-17T20:30:44.596469', 'errors': 'USDD is not a valid currency code, in line 02'}]
-
-    [{'total_issues': '4', 'user': 'finagent_x', 'validation_status': 'failed', 'file_name': 'file01',
-      'timestamp': '2025-09-18T10:02:55.794298'}, {
-         'bank_account_check': {'message': 'Bank account ID 032000000007  is valid in the target system',
-                                'status': 'true'}, 'validation_result': 'FAILURE: The file is not a valid bai2 file.',
-         'issues': [
-             'Invalid 88 continuation record: The line `88,4000000,6,/` is a malformed and misplaced continuation record. It follows a complete `03` record and does not adhere to the defined format for continuation records.']},
-     {'total_issues': 2, 'user': 'testclient1', 'validation_status': 'failed', 'file_name': 'file01',
-      'timestamp': '2025-09-18T09:42:05.932688'},
-     {'total_issues': '6', 'user': 'notification_agent', 'validation_status': 'failed', 'file_name': 'File',
-      'timestamp': '2025-09-18T10:10:33.166079'},
-     {'total_issues': '2', 'user': 'user', 'validation_status': 'failed', 'file_name': 'user_provided.bai2',
-      'timestamp': '2025-09-17T20:30:44.596469'},
-     {'total_issues': '2', 'user': 'sampath', 'validation_status': 'failed', 'file_name': 'sampath.bai2',
-      'timestamp': '2025-09-17T20:30:44.596469'}]
     get_validation_pie_chart(validation_data)
     return {"status": "success", "message": "Chart generated successfully"}
 
