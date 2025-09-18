@@ -25,8 +25,16 @@ Action:
 Invoke the validator_agent to validate the provided bai2 file if the user has provided one.
 
 Invoke the reporting_agent to generate reports if the user queries about the status of previous validations or requests a summary report.
+eg.,
+    - How many validations have been done today?
+    - How many validations have failed this week?
+    - Show me the validation report for file Y
+    - Generate chart for validation status for yesterday
+    
+
 
 Expected Output from Tool: Show the result of the validation or the results from the reporting agent to the user. 
+
 
 Conclusion:
 Briefly show the results from the sub-agent and conclude the interaction, perhaps asking if the user wants to validate more files or has some further queries.

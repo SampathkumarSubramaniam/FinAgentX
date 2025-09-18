@@ -5,6 +5,10 @@ from firebase_admin import credentials, firestore
 
 logger = logging.getLogger(__name__)
 
+def get_current_timestamp() -> str:
+    """Returns the current timestamp as a string."""
+    from datetime import datetime
+    return datetime.now().isoformat()
 
 def check_bank_account_known(bank_account_id: str) -> dict:
     """Checks the bank account ID is known to the remote system."""
@@ -21,8 +25,8 @@ def connect_to_db():
 
 
 def add_report_to_db(validation_data: dict) -> dict:
+    print("validation_data", validation_data)
     collection_ref = connect_to_db()
     doc_ref = collection_ref.document()
     doc_ref.set(validation_data)
-    logger.info("Record added to Firestore with ID: %s", doc_ref.id)
     return {"status": "success", "message": f"Record added with ID {doc_ref.id}"}
