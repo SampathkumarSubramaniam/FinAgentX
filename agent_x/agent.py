@@ -14,4 +14,5 @@ root_agent = Agent(
     reporting_agent,
     notification_agent
   ],
+  tools=[],
 )

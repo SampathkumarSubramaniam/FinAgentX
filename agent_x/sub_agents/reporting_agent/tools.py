@@ -77,3 +77,4 @@ def get_validation_pie_chart(validation_data):
             "title": f"Validation status ({yesterday})"
         }
     }
+

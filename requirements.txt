@@ -148,3 +148,4 @@ yarl
 zipp
 google-cloud-aiplatform
 cloudpickle
+firebase_admin
