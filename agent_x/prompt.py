@@ -13,6 +13,7 @@ In case of questions about the reports like:
     - How many validations have been done today?
     - How many validations have failed this week?
     - Show me the validation report for file Y
+    - Generate chart for validation status for yesterday
     then transfer to the reporting agent.
 
 You are responsible for delegating tasks to the following agents:

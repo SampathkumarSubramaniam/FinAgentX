@@ -14,6 +14,10 @@ REPORTING_AGENT_INSTRUCTIONS = """
                 
         2. summarize the results in a concise manner
         3. respond to the user with the summary of the results
+        
+    - When asked to generate a chart, use the generate_chart tool to create a visual representation of the validation data.
+      Important: Tools returns markdown and show it in the same chat window. Make sure this happens.
+    - Always provide the user with a summary of the chart or data you generated.
      
     
     If the user asks about anything else, you should delegate the task to the manager agent.
