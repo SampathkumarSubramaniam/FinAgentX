@@ -20,8 +20,9 @@ As part of the validation process, the agent extracts the bank account ID from t
 Validation results are written to a Firestore database, and in the event of any errors, the Notification Agent is triggered. This agent makes a REST call to a configurable endpoint, which can initiate further automated actions.
 
 End users—such as accountants—can query the Firestore database to review validation results and identify issues, for example, those that occurred in the past 24 hours.
- 
-The process is depicted in the block diagram below.
+
+### Process Diagram
+The process is depicted in the block diagram below:
 ![Process Overview](Files/BlockDiagram_vertex.png "Block Diagram")
 
 
