@@ -23,7 +23,7 @@ Workflow:
       and print out the message that is returned by the function in a separate section.
     - Finally, when the validation is done, construct a JSON object with the following structure:
       {
-        "file_name": "<name of the file>",
+        "file_name": "<use exact name of the file which was uploaded>",
         "validation_status": "<passed/failed>",
         "errors": [<list of errors found, empty if none>],
         "user": "<user who uploaded the file>",
