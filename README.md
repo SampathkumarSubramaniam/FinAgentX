@@ -9,18 +9,15 @@ FinAgentX enhances the validation of BAI2 files imported into SAP—or any other
 Although some validation logic can be implemented using traditional coding, the range of potential errors is vast, making comprehensive coverage difficult. In this context, an AI-powered agent like FinAgentX offers a distinct advantage by intelligently detecting and handling issues that conventional methods may miss.
 
 ### Process Overview
-The FinAgentX is deployed to the Vertex AI Agent Engine / Cloud Run running on Google Cloud platform.
-The consuming application, in this case FSCM, makes a REST call to the FinAgentX. The root agent will 
-delegate this to the Validation Agent. This agent validates the provided bai2 file, based on the 
-[technical Specification](agent_x/resources/cash_management_2005.pdf).
+FinAgentX is deployed on Google Cloud Platform, running within Vertex AI Agent Builder and Cloud Run. The consuming application—such as SAP FSCM—interacts with FinAgentX via a REST API call.
 
-Additionally, the agent reads out the bank account id from the file and calls a function to validate, if
-this is known to the SAP system (Currently, this function is only mocked).
+Upon receiving the request, the root agent delegates the task to the Validation Agent, which performs a technical validation of the provided BAI2 file based on the [technical Specification](agent_x/resources/cash_management_2005.pdf).
 
-The results of the validation are posted to firestore DB and finally the notification agent is invoked in case
-of errors. This effectively calls a REST endpoint, which could then trigger further actions. 
+As part of the validation process, the agent extracts the bank account ID from the file and invokes a function to check whether this account is known to the SAP system. (Note: This function is currently mocked.)
 
-An end user, e.g. an accountant, can query the results stored on the firestore DB to identify issues that occurred e.g. during the last day. 
+Validation results are written to a Firestore database, and in the event of any errors, the Notification Agent is triggered. This agent makes a REST call to a configurable endpoint, which can initiate further automated actions.
+
+End users—such as accountants—can query the Firestore database to review validation results and identify issues, for example, those that occurred in the past 24 hours.
  
 ![Process Overview](Files/BlockDiagram_vertex.png "Block Diagram")
 
