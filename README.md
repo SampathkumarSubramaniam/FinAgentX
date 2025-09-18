@@ -2,18 +2,11 @@
 
 ### Introduction
 
-BAI2 files are standardized, plain-text files containing bank statement information.
-They can be uploaded automatically to SAP systems via solutions like FSCM (Financial Supply Chain Management).
-This usually works well, yet errors in the files can impact customer business. Identifying the
-root cause can be time consuming.
+BAI2 files are standardized plain-text files that contain bank statement data. These files can be automatically uploaded to SAP systems using solutions like FSCM (Financial Supply Chain Management). While this process typically runs smoothly, file errors can disrupt business operations, and identifying the root cause can be time-consuming.
 
-The FinAgentX is designed to enrich the validation of BAI2 files imported to SAP systems, or any
-other system processing such files. With FinAgentX identifying such issues can
-be heavily accelerated and the overall process can be monitored and notifications are sent in case of issues. 
+FinAgentX enhances the validation of BAI2 files imported into SAP—or any other system that processes such files. It significantly accelerates the identification of issues, provides end-to-end monitoring, and sends notifications whenever errors occur.
 
-Generally, such check logic could be and is partly implemented with normal coding. Yet, the potential 
-error space is huge making it difficult to consider all aspects that could be wrong. Here an ai agent provides
-a clear advantage.
+Although some validation logic can be implemented using traditional coding, the range of potential errors is vast, making comprehensive coverage difficult. In this context, an AI-powered agent like FinAgentX offers a distinct advantage by intelligently detecting and handling issues that conventional methods may miss.
 
 ### Process Overview
 The FinAgentX is deployed to the Vertex AI Agent Engine / Cloud Run running on Google Cloud platform.
