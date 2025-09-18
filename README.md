@@ -11,6 +11,24 @@ The FinAgentX is designed to enrich the validation of BAI2 files imported to SAP
 other system processing such files. With FinAgentX identifying such issues can
 be heavily accelerated and the overall process can be monitored and notifications are sent in case of issues. 
 
+Generally, such check logic could be and is partly implemented with normal coding. Yet, the potential 
+error space is huge making it difficult to consider all aspects that could be wrong. Here an ai agent provides
+a clear advantage.
+
+### Process Overview
+The FinAgentX is deployed to the Vertex AI Agent Engine / Cloud Run running on Google Cloud platform.
+The consuming application, in this case FSCM, makes a REST call to the FinAgentX. The root agent will 
+delegate this to the Validation Agent. This agent validates the provided bai2 file, based on the 
+[technical Specification](agent_x/resources/cash_management_2005.pdf).
+
+Additionally, the agent reads out the bank account id from the file and calls a function to validate, if
+this is known to the SAP system (Currently, this function is only mocked).
+
+The results of the validation are posted to firestore DB and finally the notification agent is invoked in case
+of errors. This effectively calls a REST endpoint, which could then trigger further actions. 
+
+An end user, e.g. an accountant, can query the results stored on the firestore DB to identify issues that occurred e.g. during the last day. 
+ 
 ![Process Overview](Files/BlockDiagram_vertex.png "Block Diagram")
 
 
