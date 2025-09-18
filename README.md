@@ -25,4 +25,7 @@ End users—such as accountants—can query the Firestore database to review val
 The process is depicted in the block diagram below:
 ![Process Overview](Files/BlockDiagram_vertex.png "Block Diagram")
 
+### Demo Video
+![Video](Files/HackathonDemo_FinAgentX.mov "Video")
+
 Development steps are documented [here](DevelopmentGuide.md).
