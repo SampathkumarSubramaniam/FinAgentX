@@ -21,6 +21,7 @@ Validation results are written to a Firestore database, and in the event of any 
 
 End users—such as accountants—can query the Firestore database to review validation results and identify issues, for example, those that occurred in the past 24 hours.
  
+The process is depicted in the block diagram below.
 ![Process Overview](Files/BlockDiagram_vertex.png "Block Diagram")
 
 
