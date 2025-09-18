@@ -20,47 +20,9 @@ As part of the validation process, the agent extracts the bank account ID from t
 Validation results are written to a Firestore database, and in the event of any errors, the Notification Agent is triggered. This agent makes a REST call to a configurable endpoint, which can initiate further automated actions.
 
 End users—such as accountants—can query the Firestore database to review validation results and identify issues, for example, those that occurred in the past 24 hours.
- 
-The process is depicted in the block diagram below.
+
+### Process Diagram
+The process is depicted in the block diagram below:
 ![Process Overview](Files/BlockDiagram_vertex.png "Block Diagram")
 
-
-
-
-
-
-### Steps
-
-Start reading
-https://google.github.io/adk-docs/get-started/quickstart/
-
-Install python add-on to VS code
-
-python -m venv .venv
-- macOS/Linux: source .venv/bin/activate
-- Windows CMD: .venv\Scripts\activate.bat
-- Windows PowerShell: .venv\Scripts\Activate.ps1
-
-
-Call "pip install google-adk" , takes a few minutes
-
-Call "pip install --upgrade google-genai"
-
-Environment variables are set already on .env file (no longer subject to .gitignore)
-
-Install Google Cloud CLI installer from here https://cloud.google.com/sdk/docs/install#windows 
-
-Install the gcloud CLI component manager.
-
-Setup agent starter pack : https://github.com/GoogleCloudPlatform/agent-starter-pack?tab=readme-ov-file#-get-started-in-1-minute
-
-### Deployment to Vertex AI
-
-Run from the repository root dir: </br>
-```python agent_x/agent_engine_app.py --project=qwiklabs-gcp-01-b04f6026c908```
-
-### Invoke agent via REST
-
-1. Get the api token using `gcloud auth print-access-token`
-2. Set the token and an arbitrary user id in the file: [API requests.http](./API%20requests.http#L1-2)
-3. Execute the API calls i 
+Development steps are documented [here](DevelopmentGuide.md).
